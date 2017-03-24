@@ -1,0 +1,22 @@
+body{
+	font-family: 'Hekvetica','Arial',serif;
+	color: #3333;
+	background-color: #ccc;
+	margin: 1em 10%;
+}
+ul {
+	padding: 0;
+}
+ul li{
+	list-style:none;
+	padding: 1em;
+	float: left;
+}
+ul li img{
+	width: 100px;
+	height: 100px;
+}
+img{
+	display: block;
+	clear: both;
+}
