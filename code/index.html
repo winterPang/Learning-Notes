@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TEST</title>
+	<style type="text/css">
+		.div1{
+			float: left;
+		}
+		.div2{
+			float: left;
+		}
+		.divs{
+			height: 100px;
+			width: 100px;
+			border: 1px solid red;
+		}
+	</style>
+</head>
+<body>
+	<div style="overflow: hidden;">
+		<div class="div1">
+			bbbb<br/>bbbb<br/>bbbb<br/>bbbb<br/>bbbb<br/>bbbb<br/>bbbb<br/>bbbb<br/>bbbb<br/>bbbb<br/>bbbb<br/>bbbb<br/>bbbb<br/>bbbb<br/>bbbb<br/>bbbb<br/>bbbb<br/>bbbb<br/>
+		</div>
+		<div class="div2">
+			bbbb<br/>bbbb<br/>bbbb<br/>bbbb<br/>bbbb<br/>bbbb<br/>bbbb<br/>bbbb<br/>bbbb<br/>bbbb<br/>bbbb<br/>bbbb<br/>bbbb<br/>
+		</div>
+	</div>
+
+	<div class="divs">
+		<p>点击事件</p>
+	</div>
+</body>
+</html>
+<script type="text/javascript">
+	//事件冒泡（确定 ----> 不确定；事件代理）和事件捕获（不确定----> 确定）
+	var pEle = document.getElementsByTagName('p');
+	var divEle = document.getElementsByClassName('divs');
+	// pEle[0].onclick = function(event){
+	// 	alert("p");
+	// }
+	// pEle[0].addEventListener('click',function(){alert('p hello world')},false);
+	// divEle[0].addEventListener('click',function(){alert('div hello world')},true);
+	// divEle[0].onclick = function(event){
+	// 	alert('div');
+	// }
+	// document.body.onclick = function(event){
+	// 	alert('body');
+	// }
+</script>
