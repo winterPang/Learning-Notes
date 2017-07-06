@@ -702,7 +702,7 @@ Factory.prototype = {
 **/
 
 function VehicleFactory(subType,superType){
-	//判断抽象工厂是否有抽象类
+	//判断抽象工厂是否有抽象类()
 	if(typeof VehicleFactory(superType) === 'function'){
 		//缓冲类
 		function F(){};
@@ -717,3 +717,5 @@ function VehicleFactory(subType,superType){
 		throw new Error('未创建该抽象类')
 	}
 }
+
+//定义
