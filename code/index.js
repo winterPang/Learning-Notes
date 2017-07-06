@@ -526,14 +526,14 @@ console.log(cat instanceof Cat); // true
  * 摘自jquery extend方法
  * 
  */
-jQuery.extend = jQuery.fn.extend = function() {
+ function extend() {
 	var src, copyIsArray, copy, name, options, clone,
 		target = arguments[0] || {},
 		i = 1,
 		length = arguments.length,
 		deep = false;
 
-	// Handle a deep copy situation校验是否是深拷贝
+	// Handle a deep copy situation 校验是否是深拷贝
 	if ( typeof target === "boolean" ) {
 		deep = target;
 
@@ -590,3 +590,130 @@ jQuery.extend = jQuery.fn.extend = function() {
 	// Return the modified object
 	return target;
 };
+
+
+
+/*
+* @{title}设计模式
+*/
+
+
+/*
+* @{catalogName} 工厂模式
+* @{type}
+*   1.简单工厂模式
+*	2.安全工厂模式
+*	3.抽象工厂模式
+*/
+
+/*
+*@{lists} 简单工厂模式
+*@{description}
+*	两种简单模式工厂方法
+*	1.通过类实例化对象来创建
+*	2.通过创建一个新对象然后包装该对象属性 功能来实现
+*	结论：
+*	1、创建多对象，根据不同类型生产不同对象实例化（如果存在集成关系）
+*
+*/
+
+/*
+* @{listItem} 实例化对象
+*/
+
+//定义不同对象，封装不同属性 功能
+function Basketball(info){
+	this.info = info;
+}
+Basketball.prototype = {
+	name:"basketball",
+	getPrice:function () {
+		// body...
+		cosnole.log(this.price);
+	}
+}
+function Football(info){
+	this.info = info;
+}
+Football.prototype = {
+	name:"football",
+	getPrice:function () {
+		// body...
+		cosnole.log(this.price);
+	}
+}
+// 创建工厂函数
+// 通过实例化不同对象return不同实例对象
+function creatSportFactory(type,info){
+	switch(type){
+		case "basketball":
+			return new Basketball(info);
+		case "football":
+			return new Football(info);
+		default:
+			return new Object();
+	}
+}
+
+/*
+* @{listItem} 创建新对象
+*/
+function creatSportFactory(type,info){
+	var o = new Object();
+	o.info = info;
+	if(type == "basketball"){
+		//TODO  特性
+	}
+	if(type == "football"){
+
+	}
+	return o;
+}
+
+/*
+* @{lists} 安全工厂模式
+*
+*/
+
+var Factory = function(type,content){
+	if(this instanceof Factory){
+		var o = new this[type](content);
+	}else{
+		new Factory(type,content);
+	}
+}
+
+Factory.prototype = {
+	java: function(content){
+		//todo
+	},
+	ui: function(content){
+		//todo
+	}
+}
+
+
+/**
+* @{lists}抽象工厂模式
+* @{description}
+*	抽象工厂模式，抽象类定义的方法只是显性的定义一些功能，没有具体实现。
+*	一般不用于创建真实对象。
+*
+**/
+
+function VehicleFactory(subType,superType){
+	//判断抽象工厂是否有抽象类
+	if(typeof VehicleFactory(superType) === 'function'){
+		//缓冲类
+		function F(){};
+		//集成父类的属性、方法
+		F.prototype = new VehicleFactory[superType]();
+		//将子类constructor指向子类
+		subType.constructor = subType;
+		//子类原型集成 "父类“
+		subType.prototype = new F();
+
+	}else{
+		throw new Error('未创建该抽象类')
+	}
+}
