@@ -66,5 +66,5 @@ Number() 转换规则：
 	parseInt()和parseFloat 原理一样
 	原理：它会忽略字符串前面的空格，直至找到第一个非空字符。如果第一个字符不是数字字符或者负号，parseInt()就会返回NaN	  
 </p>
- Test
+
 
